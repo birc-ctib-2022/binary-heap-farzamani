@@ -147,3 +147,9 @@ class Heap2(HeapMixin):
         """Move the value at x[i] down to its correct location."""
         # FIXME: implement this strategy
         ...
+        child = _min_child(x, i)
+        while child:
+            x[i], x[child] = x[child], x[i]
+            i = child
+            child = _min_child(x, i)
+        cls._fix_up(x, i)
